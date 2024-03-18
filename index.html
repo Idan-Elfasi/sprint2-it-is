@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <title>Make it meme</title>
+</head>
+<body class="main-layout" onload="inIt()">
+    <section class="editor">
+<header class="main-header flex">
+    <label class="logo"> Make it me艾马e</label>
+    <nav class="main-nav">
+        <ul >
+            <li><a href="#"></a>editor</li>
+            <li><a href="#"></a>gallery</li>
+            <li><a href="#"></a>saved</li>
+        </ul>
+    </nav>
+    <select name="lang" id="lang">
+        <option value="en">english</option>
+        <option value="he">עברית</option>
+    </select>
+</header>
+<canvas width="350" height="350"></canvas>
+<input  class="text-line" type="text" placeholder="Add Text Here" oninput="onSetlineTxt()" >
+
+    </section>
+    <!-- <section class="gallery"></section> -->
+    <script src="js/meme.service.js"></script>
+    <script src="js/meme.controller.js"></script>
+</body>
+</html>
