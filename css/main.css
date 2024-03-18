@@ -1,0 +1,14 @@
+/* set-up */
+@import url(set-up/varibales.css);
+@import url(set-up/typography.css);
+/* basics */
+@import url(basics/base.css);
+@import url(basics/layout.css);
+@import url(basics/helpers.css);
+
+/* components */
+@import url(components/main-header.css);
+
+
+/* media-queries */
+@import url(set-up/mq.css);
