@@ -1,3 +1,23 @@
-.main-header .main-nav {
-list-style-type: none;
+.main-header{
+   background-color:var(--primery-end) ;
+   position: relative;
+}
+.main-header:hover{
+    cursor: pointer;
+}
+.main-header ul{
+    gap: 9em;
+}
+.main-header ul > *{
+    height: 70px;
+    border: solid var(--primery-end);
+}
+/* .main-header ul li > * :hover{
+
+} */
+
+
+.main-header select{
+position: absolute;
+right: 0;
 }
