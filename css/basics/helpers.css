@@ -18,3 +18,15 @@
 .nice-color{
     color: var(--prince-clr);
 }
+.btn {
+	padding: 5px 10px;
+	background: #4267b2;
+	border: 1px solid #4267b2;
+	border-radius: 3px;
+	margin: 3px;
+    
+	text-decoration: none;
+	font-size: 22px;
+	color: #fff;
+	cursor: pointer;
+}
