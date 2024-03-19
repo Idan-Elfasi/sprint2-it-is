@@ -36,3 +36,9 @@ function addImg(img){
   gImgs.push(nextImage)
   return nextImage
 }
+function Save(){
+  saveToStorage('memeDb' ,gMeme )
+   }
+   function Load(){
+  gMeme=loadFromStorage('memeDb')
+   }

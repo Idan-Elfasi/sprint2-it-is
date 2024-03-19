@@ -34,3 +34,9 @@ function onSetlineTxt(){
     setlineTxt()
     renderMeme()
 }
+function onSave(){
+    save()
+}
+function onLoad(){
+    load()
+}
