@@ -11,7 +11,9 @@ function inIt() {
 
     
     renderMeme()
+    editorPage()
     renderGallery()
+
 }
 
 function renderMeme() {
