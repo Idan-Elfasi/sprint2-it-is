@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/main.css">
+    <script src="https://kit.fontawesome.com/d9518e8073.js" crossorigin="anonymous"></script>
     <title>Make it meme</title>
 </head>
 
@@ -13,7 +14,7 @@
         <header class="main-header flex">
             <nav class="main-nav">
                 <ul class="clean-list flex">
-                    <li onclick="editorPage()" class="logo flex center nice-color"><a href=#></a> Make it me艾马e</li>
+                    <li onclick="editorPage()" class=" flex center nice-color"><a href=#></a> Make it me艾马e</li>
                     <li onclick="editorPage()" class="flex center nice-color"><a href="#"></a>editor</li>
                     <li onclick="galleryPage()" class="flex center nice-color"><a href="#"></a>gallery</li>
                     <li onclick="savePage()" class="flex center nice-color"><a href="#"></a>saved</li>
@@ -30,8 +31,21 @@
             </div>
             <div class="edit-buttons">
                 <input class="text-line" type="text" placeholder="Add Text Here" oninput="onSetlineTxt()">
-                <a href="#" class="btn" onclick="downloadImg(this)" download="my-meme.jpg">Download jpeg</a>
-                <button class="save" onclick="onSave(event)">save</button>
+                <a href="#" class="btn" onclick="downloadImg(this)" download="my-meme.jpg"><i class="fa-solid fa-file-export"></i></a>
+                <button class="save btn" onclick="onSave(event)"><i class="fa-solid fa-lock"></i></button>
+                <div  style="position:relative; display:inline-block">
+                    <button  type="button" class="btn "><i class="fa-solid fa-paint-roller"></i></button>
+                    <input onchange="onChangeTxtColor(this)" type="color" value="#ff0000" style="opacity:0; position:absolute; left: 0;;top:0;width:100%"/>
+                </div>
+                <nav class="font-size-btns">
+                    <button class="btn font-size-btn"  onclick="OndecreaseSizeByBtn()" name="decrease">
+                        <i class="fa-solid fa-font"></i><i class="fa-solid fa-minus"></i>
+                      </button>
+                      <button class="btn font-size-btn" onclick="OnincreaseSizeByBtn()" name="increase">
+                        <i class="fa-solid fa-font"></i> <i class="fa-solid fa-plus"></i>
+                </nav>
+                
+              
             </div>
         </main>
     </section>
@@ -39,7 +53,7 @@
         <header class="main-header flex">
             <nav class="main-nav">
                 <ul class="clean-list flex">
-                    <li onclick="editorPage()" class="logo flex center nice-color"><a href=#></a> Make it me艾马e</li>
+                    <li onclick="editorPage()" class=" flex center nice-color"><a href=#></a> Make it me艾马e</li>
                     <li onclick="editorPage()" class="flex center nice-color"><a href="#"></a>editor</li>
                     <li onclick="galleryPage()" class="flex center nice-color"><a href="#"></a>gallery</li>
                     <li onclick="savePage()" class="flex center nice-color"><a href="#"></a>saved</li>
@@ -56,7 +70,7 @@
         <header class="main-header flex">
             <nav class="main-nav">
                 <ul class="clean-list flex">
-                    <li onclick="editorPage()" class="logo flex center nice-color"><a href=#></a> Make it me艾马e</li>
+                    <li onclick="editorPage()" class=" flex center nice-color"><a href=#></a> Make it me艾马e</li>
                     <li onclick="editorPage()" class="flex center nice-color"><a href="#"></a>editor</li>
                     <li onclick="galleryPage()" class="flex center nice-color"><a href="#"></a>gallery</li>
                     <li onclick="savePage()" class="flex center nice-color"><a href="#"></a>saved</li>

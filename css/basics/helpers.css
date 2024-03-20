@@ -26,7 +26,10 @@
 	margin: 3px;
     
 	text-decoration: none;
-	font-size: 22px;
+    font-size: 1.375em;
 	color: #fff;
 	cursor: pointer;
+}
+.font-size-btn{
+    font-size: 0.9em;
 }
