@@ -24,9 +24,33 @@ function renderMeme() {
     img.src = imgObject.url
     img.onload = function () {
         gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height)
-        meme.lines.forEach( line => drawText(line))
+        meme.lines.forEach((line, idx) => {
+            const txt = line.txt
+            const textSize = line.size
+            var { x, y } = line.pos
+            gCtx.fillStyle = line.color
+
+            gCtx.font = `${line.size}em Regular `
+
+            gCtx.fillText(line.txt, x, y)
+            if (idx === gMeme.selectedLineIdx && meme.lines.length > 1) {
+
+
+                var mull = 1.42857 // line hight from bootstrap 
+                var size = textSize * gFontSize
+
+                var borderHieght = (mull * size)
+
+
+                var widthBorder = gCtx.measureText(txt).width
+                console.log(widthBorder);
+
+                gCtx.strokeRect(x, y - 0.5 * borderHieght, widthBorder+gpxPaddingInline, borderHieght * 0.5 + gpxPaddingBottom)
+            }
+
+        })
     }
-  
+
 }
 function onSetlineTxt() {
     setlineTxt()
@@ -48,12 +72,12 @@ function OnincreaseSizeByBtn() {
     IncreaseSizeByBtn()
     renderMeme()
 }
-function onAddLine(){
+function onAddLine() {
     addLine()
     console.log(gMeme);
     renderMeme()
 }
-function onSwitchLine(){
+function onSwitchLine() {
     switchLine()
-    addBorderTxt()
+    renderMeme()
 }
