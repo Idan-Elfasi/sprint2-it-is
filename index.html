@@ -10,21 +10,21 @@
 </head>
 
 <body class="main-layout" onload="inIt()">
+    <header class="main-header flex">
+        <nav class="main-nav">
+            <ul class="clean-list flex">
+                <li onclick="editorPage()" class=" flex center nice-color"><a href=#></a> Make it me艾马e</li>
+                <li onclick="editorPage()" class="flex center nice-color"><a href="#"></a>editor</li>
+                <li onclick="galleryPage()" class="flex center nice-color"><a href="#"></a>gallery</li>
+                <li onclick="savePage()" class="flex center nice-color"><a href="#"></a>saved</li>
+            </ul>
+        </nav>
+        <select name="lang" id="lang">
+            <option value="en">english</option>
+            <option value="he">עברית</option>
+        </select>
+    </header>
     <section class="editor">
-        <header class="main-header flex">
-            <nav class="main-nav">
-                <ul class="clean-list flex">
-                    <li onclick="editorPage()" class=" flex center nice-color"><a href=#></a> Make it me艾马e</li>
-                    <li onclick="editorPage()" class="flex center nice-color"><a href="#"></a>editor</li>
-                    <li onclick="galleryPage()" class="flex center nice-color"><a href="#"></a>gallery</li>
-                    <li onclick="savePage()" class="flex center nice-color"><a href="#"></a>saved</li>
-                </ul>
-            </nav>
-            <select name="lang" id="lang">
-                <option value="en">english</option>
-                <option value="he">עברית</option>
-            </select>
-        </header>
         <main class="editor-page flex ">
 
             <div class="canvas-container">
@@ -33,12 +33,14 @@
 
             <div class="edit-buttons">
                 <input class="text-line" type="text" placeholder="Add Text Here" oninput="onSetlineTxt()">
-                <a href="#" class="btn" onclick="downloadImg(this)" download="my-meme.jpg"><i
-                        class="fa-solid fa-file-export"></i></a>
-                <button class="save btn" onclick="onSave(event)"><i class="fa-solid fa-lock"></i></button>
+                <div class="file-buttons">
+                    <a href="#" class="btn" onclick="downloadImg(this)" download="my-meme.jpg"><i
+                            class="fa-solid fa-file-export"></i></a>
+                    <button class="save btn" onclick="onSave(event)"><i class="fa-solid fa-lock"></i></button>
+                </div>
                 <div style="position:relative; display:inline-block">
                     <button type="button" class="btn "><i class="fa-solid fa-paint-roller"></i></button>
-                    <input onchange="onChangeTxtColor(this)" type="color" value="#ff0000"
+                    <input oninput="onChangeTxtColor(this)" type="color" value="#ff0000"
                         style="opacity:0; position:absolute; left: 0;;top:0;width:100%" />
                 </div>
 
@@ -59,42 +61,11 @@
         </main>
     </section>
     <section class="gallery">
-        <header class="main-header flex">
-            <nav class="main-nav">
-                <ul class="clean-list flex">
-                    <li onclick="editorPage()" class=" flex center nice-color"><a href=#></a> Make it me艾马e</li>
-                    <li onclick="editorPage()" class="flex center nice-color"><a href="#"></a>editor</li>
-                    <li onclick="galleryPage()" class="flex center nice-color"><a href="#"></a>gallery</li>
-                    <li onclick="savePage()" class="flex center nice-color"><a href="#"></a>saved</li>
-                </ul>
-            </nav>
-            <select>
-                <option value="en">english</option>
-                <option value="he">עברית</option>
-            </select>
-        </header>
-        <main></main>
     </section>
     <section class="saved">
-        <header class="main-header flex">
-            <nav class="main-nav">
-                <ul class="clean-list flex">
-                    <li onclick="editorPage()" class=" flex center nice-color"><a href=#></a> Make it me艾马e</li>
-                    <li onclick="editorPage()" class="flex center nice-color"><a href="#"></a>editor</li>
-                    <li onclick="galleryPage()" class="flex center nice-color"><a href="#"></a>gallery</li>
-                    <li onclick="savePage()" class="flex center nice-color"><a href="#"></a>saved</li>
-                </ul>
-            </nav>
-            <select>
-                <option value="en">english</option>
-                <option value="he">עברית</option>
-            </select>
-        </header>
-        <main>
-
-        </main>
     </section>
     <script src="js/meme.service.js"></script>
+    <script src="js/gallerty.service.js"></script>
     <script src="js/storage.service.js"></script>
     <script src="js/util.service.js"></script>
 

@@ -8,6 +8,8 @@
 
 /* components */
 @import url(components/main-header.css);
+@import url(components/editor.css);
+@import url(components/gallery.css);
 
 
 /* media-queries */

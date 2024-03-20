@@ -10,12 +10,18 @@ function inIt() {
     gCtx = gElCanvas.getContext('2d')
 
 
+    resizeCanvas()
     renderMeme()
     editorPage()
     renderGallery()
 
 }
+function resizeCanvas() {
+    const elContainer = document.querySelector('.canvas-container')
 
+    gElCanvas.width = elContainer.offsetWidth
+    gElCanvas.height = elContainer.offsetHeight
+}
 function renderMeme() {
     var meme = getMeme()
     var imgObject = getImgbyId(meme.selectedImgId)
@@ -45,7 +51,7 @@ function renderMeme() {
                 var widthBorder = gCtx.measureText(txt).width
                 console.log(widthBorder);
 
-                gCtx.strokeRect(x, y - 0.5 * borderHieght, widthBorder+gpxPaddingInline, borderHieght * 0.5 + gpxPaddingBottom)
+                gCtx.strokeRect(x, y - 0.5 * borderHieght, widthBorder + gpxPaddingInline, borderHieght * 0.5 + gpxPaddingBottom)
             }
 
         })

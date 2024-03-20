@@ -5,6 +5,15 @@
         minmax(auto,800px)
         minmax(20px,1fr);
 }
+.main-layout header{
+    grid-column: 2;
+}
 .main-layout .editor  {
 grid-column: 2;
+}
+.main-layout .gallery{
+    grid-column: 2;
+}
+.main-layout .saved{
+    grid-column: 2;
 }

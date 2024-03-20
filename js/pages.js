@@ -3,17 +3,18 @@ const gGalleryPage = document.querySelector('.gallery')
 const gSavedPage = document.querySelector('.saved')
 
 function editorPage() {
-    gEditPage.style.display = 'block'
-    gGalleryPage.style.display = 'none'
-    gSavedPage.style.display = 'none'
+    gEditPage.classList.remove('hidden')
+    gGalleryPage.classList.add('hidden')
+    gSavedPage.classList.add('hidden')
+ 
 }
 function galleryPage() {
-    gEditPage.style.display = 'none'
-    gGalleryPage.style.display = 'block'
-    gSavedPage.style.display = 'none'
+    gEditPage.classList.add('hidden')
+    gGalleryPage.classList.remove('hidden')
+    gSavedPage.classList.add('hidden')
 }
 function  savePage(){
-    gEditPage.style.display = 'none'
-    gGalleryPage.style.display = 'none'
-    gSavedPage.style.display = 'block' 
+    gEditPage.classList.add('hidden') 
+    gGalleryPage.classList.add('hidden') 
+    gSavedPage.classList.remove('hidden') 
 }

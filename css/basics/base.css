@@ -4,8 +4,11 @@
 html{ 
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     /* font-family: popins; */
-    background-color: var(--bcgColor);
+    /* background-color: var(--bcgColor); */
+    /* background-image: url(https://dl-file.cyberlink.com/web/upload-file/learning-center/enu/2021/5/Thumbnail_20210520203724745.jpg); */
+    background-color: rgb(44, 60, 55);
 }
 body{
 margin: 0;
+
 }
