@@ -8,12 +8,8 @@ var gMeme = {
     {
       txt: 'Add text Here',
       size: 1.25,
-      color: 'red'
-    },
-    {
-      txt: 'Add text Here',
-      size: 1.25,
-      color: 'blue' 
+      color: 'red',
+      pos: { x: 150, y: 20 }
     }
   ]
 }
@@ -28,7 +24,6 @@ function getImgbyId(id) {
 function setlineTxt() {
   const elTxtLine = document.querySelector('.text-line')
   gMeme.lines[gMeme.selectedLineIdx].txt = elTxtLine.value
-  console.log(gMeme.lines[gMeme.selectedLineIdx].txt);
 }
 function setImg(img) {
   var nextImag = addImg(img)
@@ -45,9 +40,52 @@ function ChangeTxtColor(inputColor) {
   gMeme.lines[gMeme.selectedLineIdx].color = inputColor.value
 }
 
- function DecreaseSizeByBtn(){
-  gMeme.lines[gMeme.selectedLineIdx].size+= -0.1
+function DecreaseSizeByBtn() {
+  gMeme.lines[gMeme.selectedLineIdx].size += -0.1
 }
-function IncreaseSizeByBtn(){
-  gMeme.lines[gMeme.selectedLineIdx].size+=  0.1
+function IncreaseSizeByBtn() {
+  gMeme.lines[gMeme.selectedLineIdx].size += 0.1
+}
+function createLine() {
+  var x = gMeme.lines[gMeme.selectedLineIdx - 1].pos.x + 15
+  var y = gMeme.lines[gMeme.selectedLineIdx - 1].pos.y + 15
+  return {
+    txt: 'Add text Here',
+    size: 1.25,
+    color: 'red',
+    pos: { x, y }
+  }
+}
+function addLine() {
+  gMeme.selectedLineIdx++
+
+  const line = createLine()
+  gMeme.lines.push(line)
+
+   document.querySelector('.text-line').value = ''
+
+
+}
+
+function drawText(line) {
+  var { x, y } = line.pos
+  gCtx.fillStyle = line.color
+
+  gCtx.font = `${line.size}em Regular `
+
+  gCtx.fillText(line.txt, x, y)
+}
+
+function switchLine(){
+   var idx =gMeme.selectedLineIdx+1
+   gMeme.selectedLineIdx= (idx<gMeme.lines.length)?idx:0
+   document.querySelector('.text-line').value =gMeme.lines[gMeme.selectedLineIdx].txt
+   addBorderTxt()
+}
+function addBorderTxt(){
+  var{x,y}=gMeme.lines[gMeme.selectedLineIdx].pos
+  var mull=
+gCtx.strokeRect(x-20,y-20,)
+
+
 }

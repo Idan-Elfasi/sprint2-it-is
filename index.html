@@ -26,26 +26,35 @@
             </select>
         </header>
         <main class="editor-page flex ">
+
             <div class="canvas-container">
                 <canvas width="350" height="350"></canvas>
             </div>
+
             <div class="edit-buttons">
                 <input class="text-line" type="text" placeholder="Add Text Here" oninput="onSetlineTxt()">
-                <a href="#" class="btn" onclick="downloadImg(this)" download="my-meme.jpg"><i class="fa-solid fa-file-export"></i></a>
+                <a href="#" class="btn" onclick="downloadImg(this)" download="my-meme.jpg"><i
+                        class="fa-solid fa-file-export"></i></a>
                 <button class="save btn" onclick="onSave(event)"><i class="fa-solid fa-lock"></i></button>
-                <div  style="position:relative; display:inline-block">
-                    <button  type="button" class="btn "><i class="fa-solid fa-paint-roller"></i></button>
-                    <input onchange="onChangeTxtColor(this)" type="color" value="#ff0000" style="opacity:0; position:absolute; left: 0;;top:0;width:100%"/>
+                <div style="position:relative; display:inline-block">
+                    <button type="button" class="btn "><i class="fa-solid fa-paint-roller"></i></button>
+                    <input onchange="onChangeTxtColor(this)" type="color" value="#ff0000"
+                        style="opacity:0; position:absolute; left: 0;;top:0;width:100%" />
                 </div>
+
                 <nav class="font-size-btns">
-                    <button class="btn font-size-btn"  onclick="OndecreaseSizeByBtn()" name="decrease">
+                    <button class="btn font-size-btn" onclick="OndecreaseSizeByBtn()" name="decrease">
                         <i class="fa-solid fa-font"></i><i class="fa-solid fa-minus"></i>
-                      </button>
-                      <button class="btn font-size-btn" onclick="OnincreaseSizeByBtn()" name="increase">
+                    </button>
+                    <button class="btn font-size-btn" onclick="OnincreaseSizeByBtn()" name="increase">
                         <i class="fa-solid fa-font"></i> <i class="fa-solid fa-plus"></i>
                 </nav>
-                
-              
+
+                <nav class="lines-btns">
+                    <button onclick="onAddLine()" class="btn"><i class="fa-solid fa-t"></i></button>
+                    <button class="btn" onclick="onSwitchLine()"><i class="fa-solid fa-repeat"></i></button>
+                    <button class="btn" onclick="onDeleteLine()"><i class="fa-solid fa-text-slash"></i></button>
+                </nav>
             </div>
         </main>
     </section>
@@ -59,7 +68,7 @@
                     <li onclick="savePage()" class="flex center nice-color"><a href="#"></a>saved</li>
                 </ul>
             </nav>
-            <select >
+            <select>
                 <option value="en">english</option>
                 <option value="he">עברית</option>
             </select>
@@ -85,8 +94,10 @@
 
         </main>
     </section>
+    <script src="js/util.service.js"></script>
     <script src="js/meme.service.js"></script>
     <script src="js/storage.service.js"></script>
+
     <script src="js/pages.js"></script>
     <script src="js/gallery.controller.js"></script>
     <script src="js/meme.controller.js"></script>

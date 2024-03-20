@@ -24,12 +24,9 @@ function renderMeme() {
     img.src = imgObject.url
     img.onload = function () {
         gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height)
-        
-        gCtx.fillText(meme.lines[meme.selectedLineIdx].txt, 150, 20)
-        gCtx.fillText(meme.lines[meme.selectedLineIdx+1].txt, 150, 50)
+        meme.lines.forEach( line => drawText(line))
     }
-    gCtx.fillStyle = meme.lines[meme.selectedLineIdx].color
-    gCtx.font = `${meme.lines[meme.selectedLineIdx].size}em Regular `
+  
 }
 function onSetlineTxt() {
     setlineTxt()
@@ -50,4 +47,13 @@ function OndecreaseSizeByBtn() {
 function OnincreaseSizeByBtn() {
     IncreaseSizeByBtn()
     renderMeme()
+}
+function onAddLine(){
+    addLine()
+    console.log(gMeme);
+    renderMeme()
+}
+function onSwitchLine(){
+    switchLine()
+    addBorderTxt()
 }
