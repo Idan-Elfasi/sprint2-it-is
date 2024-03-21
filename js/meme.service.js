@@ -14,7 +14,7 @@ var gMeme = {
       txt: 'Add text Here',
       size: 1.25,
       color: 'red',
-      pos: { x: 100, y: 20 }
+      pos: { x: 100, y: 20 },
     }
   ]
 }
@@ -49,7 +49,8 @@ function createLine() {
     txt: 'Add text Here',
     size: 1.25,
     color: 'red',
-    pos: { x, y }
+    pos: { x, y },
+
   }
 }
 function addLine() {
@@ -77,31 +78,12 @@ function switchLine() {
   var idx = gMeme.selectedLineIdx + 1
   gMeme.selectedLineIdx = (idx < gMeme.lines.length) ? idx : 0
   document.querySelector('.text-line').value = gMeme.lines[gMeme.selectedLineIdx].txt
-  // gCtx.clearRect(gborderData.x,gborderData.y,gborderData.width,gborderData.hight)
-
-
-  // addBorderTxt()
-
 
 }
-function addBorderTxt() {
-  var { x, y } = gMeme.lines[gMeme.selectedLineIdx].pos
-
-  var mull = 1.42857 // line hight from bootstrap 
-  var size = gMeme.lines[gMeme.selectedLineIdx].size * gFontSize
-
-  var borderHieght = (mull * size)
-
-
-  var widthBorder = gCtx.measureText(gMeme.lines[gMeme.selectedLineIdx].txt).width
-  console.log(widthBorder);
-
-  gCtx.strokeRect(x, y - 0.5 * borderHieght, widthBorder, borderHieght * 0.5 + gpxPaddingBottom)
-
-  gborderData = {
-    x,
-    y: y - 0.5 * borderHieght,
-    width: widthBorder + gpxPaddingInline,
-    hight: borderHieght * 0.5 + gpxPaddingBottom
-  }
+function switchLineClicked(idx){
+gMeme.selectedLineIdx=idx
+document.querySelector('.text-line').value = gMeme.lines[gMeme.selectedLineIdx].txt
 }
+ function deleteLine(){
+  gMeme.lines.splice(gMeme.selectedLineIdx,1)
+ }

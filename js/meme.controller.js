@@ -2,7 +2,8 @@
 
 let gElCanvas
 let gCtx
-
+var gborderHieght
+var gborderWidth
 
 
 function inIt() {
@@ -45,13 +46,13 @@ function renderMeme() {
                 var mull = 1.42857 // line hight from bootstrap 
                 var size = textSize * gFontSize
 
-                var borderHieght = (mull * size)
+                 gborderHieght = (mull * size)
 
 
-                var widthBorder = gCtx.measureText(txt).width
-                console.log(widthBorder);
+                 gborderWidth = gCtx.measureText(txt).width
 
-                gCtx.strokeRect(x, y - 0.5 * borderHieght, widthBorder + gpxPaddingInline, borderHieght * 0.5 + gpxPaddingBottom)
+                gCtx.strokeRect(x, y - 0.5 * gborderHieght, gborderWidth + gpxPaddingInline, gborderHieght * 0.5 + gpxPaddingBottom)
+                
             }
 
         })
@@ -85,5 +86,25 @@ function onAddLine() {
 }
 function onSwitchLine() {
     switchLine()
+    renderMeme()
+}
+function onUploadImg() {
+
+}
+function CheckOnlineClick(ev) {
+    const { offsetX, offsetY } = ev
+
+    gMeme.lines.forEach((line,idx) => {
+        var { x, y } = line.pos
+        console.log('x: '+ x,'y: '+y,'offsetX: '+ offsetX,'offsety: '+ offsetY);
+        if (offsetX >= x && offsetX <= (gborderWidth+gpxPaddingInline) + x && offsetY>=y && offsetY<= y+(gborderHieght*0.5+gpxPaddingBottom) ){
+            switchLineClicked(idx)
+            renderMeme()
+            console.log('this is the line clicked')
+        }
+})
+}
+function onDeleteLine(){
+    deleteLine()
     renderMeme()
 }
