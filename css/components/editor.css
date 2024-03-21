@@ -1,13 +1,17 @@
 .editor-page{
     justify-content: space-between;
-    position: relative;
+    
 }
+.editor-page input[type=text] {
+    background-color: #3CBC8D;
+    color: white;
+    border: 2px solid rgb(221, 0, 255);
+    border-radius: 0.25em;
+  }
 .editor-page .edit-buttons{
-    position: absolute;
-    right: 0;
-    bottom: 0;
+   
     display: flex;
-    gap: 20px;
+    gap: 2.8125em;
     justify-content: center;
     align-items: center;
     flex-direction: column;
@@ -15,12 +19,17 @@
 
     height: 100%;
     width: 50%;
-    margin-top: 25px;
-    background-color: rgb(10, 246, 214);
+    
+    background-color: rgb(55, 196, 248);
     border-radius: 2em;
 }
+
 .editor-page .edit-buttons .file-buttons {
 background-color: rgb(42, 155, 184);
     box-shadow: 3px 3px 4px 0px rgb(4, 139, 151), 
         inset 3px 3px 4px 0px rgba(255, 255, 255, 0.58);
+}
+.editor-page .text-line{
+margin-top: 1em;
+    
 }
