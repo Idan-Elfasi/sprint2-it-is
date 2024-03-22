@@ -39,11 +39,24 @@
                     <button class="save btn" onclick="onSave(event)"><i class="fa-solid fa-lock"></i></button>
                     <button class="btn" onclick="onUploadImg()"><i class="fa-brands fa-facebook"></i> </button>
                 </div>
-                <div style="position:relative; display:inline-block">
-                    <button type="button" class="btn "><i class="fa-solid fa-paint-roller"></i></button>
-                    <input oninput="onChangeTxtColor(this)" type="color" value="#ff0000"
-                        style="opacity:0; position:absolute; left: 0;;top:0;width:100%" />
-                </div>
+                <section class="color-txt flex center">
+                    <div  style="position:relative; display:inline-block">
+                        <button type="button" class="btn "><i class="fa-solid fa-paint-roller"></i></button>
+                        <input oninput="onChangeTxtColor(this)" type="color" value="#ff0000"
+                            style="opacity:0; position:absolute; left: 0;;top:0;width:100%" />
+                        </div>
+                        <div  style="position:relative; display:inline-block">
+                            <button type="button" class="btn "><i class="fa-solid fa-palette"></i></button>
+                            <input oninput="onChangeTxtStrokeColor(this)" type="color" value="#ff0000"
+                                style="opacity:0; position:absolute; left: 0;;top:0;width:100%" />
+                            </div>
+
+                </section>
+                    <div class="moveLines">
+                        <button class="btn" onclick="onRightLine()"><i class="fa-solid fa-align-right"></i></button>
+                        <button class="btn" onclick="onCenterLine()"><i class="fa-solid fa-align-center"></i></button>
+                        <button class="btn" onclick="onLeftLine()"><i class="fa-solid fa-align-left"></i></button>
+                    </div>
 
                 <nav class="font-size-btns">
                     <button class="btn font-size-btn" onclick="OndecreaseSizeByBtn()" name="decrease">
@@ -62,6 +75,13 @@
         </main>
     </section>
     <section class="gallery">
+       <header class="gallery-header">
+        <nav>
+            <ul class="flex center clean-list">
+                <li class="btn font-size-btn" onclick="onRandomMeme()"><a href="#"></a>random-meme</li>
+            </ul>
+        </nav>
+       </header>
     </section>
     <section class="saved">
     </section>
