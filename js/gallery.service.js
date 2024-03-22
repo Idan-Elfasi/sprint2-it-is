@@ -24,9 +24,10 @@ function getImgbyId(id) {
 function randomMeme() {
   var meme = getMeme()
   meme.lines.splice(1)
-
+  
   var imgNum = getRandomIntInclusive(1, 17)
   var txt = makeLorem(2)
+  document.querySelector('.text-line').value=txt
   
   setImg(imgNum)
   SetOtherText(txt)
