@@ -36,23 +36,25 @@ function renderMeme() {
             const textSize = line.size
             var { x, y } = line.pos
             gCtx.fillStyle = line.color
-
+            gCtx.strokeStyle = line.borderColor
             gCtx.font = `${line.size}em Regular `
+            gCtx.strokeText(txt,x,y)
+
 
             gCtx.fillText(line.txt, x, y)
-            if (idx === gMeme.selectedLineIdx && meme.lines.length > 1) {
+            if (idx === gMeme.selectedLineIdx ) {
 
 
                 var mull = 1.42857 // line hight from bootstrap 
                 var size = textSize * gFontSize
 
-                 gborderHieght = (mull * size)
+                gborderHieght = (mull * size)
 
 
-                 gborderWidth = gCtx.measureText(txt).width
-
+                gborderWidth = gCtx.measureText(txt).width
+                gCtx.strokeStyle ='black';
                 gCtx.strokeRect(x, y - 0.5 * gborderHieght, gborderWidth + gpxPaddingInline, gborderHieght * 0.5 + gpxPaddingBottom)
-                
+
             }
 
         })
@@ -69,6 +71,10 @@ function downloadImg(elLink) {
 }
 function onChangeTxtColor(inputColor) {
     ChangeTxtColor(inputColor)
+    renderMeme()
+}
+function onChangeTxtStrokeColor(inputColor){
+    changeTxtStrokeColor(inputColor)
     renderMeme()
 }
 function OndecreaseSizeByBtn() {
@@ -94,17 +100,29 @@ function onUploadImg() {
 function CheckOnlineClick(ev) {
     const { offsetX, offsetY } = ev
 
-    gMeme.lines.forEach((line,idx) => {
+    gMeme.lines.forEach((line, idx) => {
         var { x, y } = line.pos
-        console.log('x: '+ x,'y: '+y,'offsetX: '+ offsetX,'offsety: '+ offsetY);
-        if (offsetX >= x && offsetX <= (gborderWidth+gpxPaddingInline) + x && offsetY>=y && offsetY<= y+(gborderHieght*0.5+gpxPaddingBottom) ){
+        console.log('x: ' + x, 'y: ' + y, 'offsetX: ' + offsetX, 'offsety: ' + offsetY);
+        if (offsetX >= x && offsetX <= (gborderWidth + gpxPaddingInline) + x && offsetY >= y && offsetY <= y + (gborderHieght * 0.5 + gpxPaddingBottom)) {
             switchLineClicked(idx)
             renderMeme()
             console.log('this is the line clicked')
         }
-})
+    })
 }
-function onDeleteLine(){
+function onDeleteLine() {
     deleteLine()
+    renderMeme()
+}
+function onRightLine() {
+    rightLine()
+    renderMeme()
+}
+function onLeftLine() {
+    leftLine()
+    renderMeme()
+}
+function onCenterLine() {
+    centerLine()
     renderMeme()
 }

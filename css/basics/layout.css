@@ -4,6 +4,7 @@
         minmax(20px,1fr)
         minmax(auto,800px)
         minmax(20px,1fr);
+        grid-gap: 3em;
 }
 .main-layout header{
     grid-column: 2;
