@@ -30,6 +30,11 @@
 	color: #fff;
 	cursor: pointer;
 }
+.btn:hover{
+    transition: 0.5s;
+    color:  #4267b2;
+    background-color: #fff;
+}
 .font-size-btn{
     font-size: 0.9em;
 }
