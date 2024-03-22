@@ -1,6 +1,6 @@
 'use strict'
 
-var gSaveSection=document.querySelector('.saved')
+var gSaveSection=document.querySelector('.gallery-saved-memes')
 function renderSavedMems(){
      var idx=getCurrIdxSavedmeme()
     var strHtmls= `
