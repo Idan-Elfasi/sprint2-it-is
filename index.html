@@ -79,9 +79,27 @@
         <nav>
             <ul class="flex center clean-list">
                 <li class="btn font-size-btn" onclick="onRandomMeme()"><a href="#"></a>I'm flexible</li>
+                <li><form onsubmit="onSearchingGallery(event,this)">
+                    <label for="search">search type of images from gallery:</label>
+                    <input type="text" list="searching" name="search" id="search">
+                    <input type="submit" value="submit" >
+                </form>
+                    <datalist id="searching">
+                      <option value="funny">
+                      <option value="cat">
+                      <option value="baby">
+                      <option value="happy">
+                      <option value="sad">
+                      <option value="animals">
+                      <option value="sarcastic">
+                      <option value="guilty">
+                      <option value="success">
+                    </datalist>
+                  </li>
             </ul>
         </nav>
        </header>
+       <main class="gallery-container"></main>
     </section>
     <section class="saved center">
         <h6 class="save-page-msg btn center" class="btn">You can click on the meme you saved and edit it😎</h6>

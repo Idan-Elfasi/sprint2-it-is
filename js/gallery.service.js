@@ -1,5 +1,5 @@
 var gImgs = [{ id: 1, url: 'img/2.jpg', keywords: ['funny', 'cat'] },
-{ id: 2, url: 'img/3.jpg', keywords: ['animals', 'cute'], },
+{ id: 2, url: 'img/3.jpg', keywords: ['animals', 'cute', 'cat'], },
 { id: 3, url: 'img/4.jpg', keywords: ['funny', 'animals', 'cute'] },
 { id: 4, url: 'img/5.jpg', keywords: ['animals'] },
 { id: 5, url: 'img/6.jpg', keywords: ['funny', 'sad', 'cute'] },
@@ -15,7 +15,7 @@ var gImgs = [{ id: 1, url: 'img/2.jpg', keywords: ['funny', 'cat'] },
 { id: 15, url: 'img/16.jpg', keywords: ['happy'] },
 { id: 16, url: 'img/17.jpg', keywords: ['guilty'] },
 { id: 17, url: 'img/18.jpg', keywords: ['happy', 'sad'] }]
-
+var gFilterImages=[]
 
 function getImgbyId(id) {
   var img = gImgs.find(img => img.id === id)
@@ -33,4 +33,16 @@ function randomMeme() {
   SetOtherText(txt)
 
 
+}
+
+function  searchingGallery(inputValue){
+var imges=[]
+for(var i=0;i<gImgs.length;i++){
+  for(var j=0; j<gImgs[i].keywords.length;j++){
+    if(gImgs[i].keywords[j]===inputValue){
+      imges.push(gImgs[i])
+    }
+  }
+}
+return imges
 }
