@@ -36,7 +36,7 @@
                 <div class="file-buttons">
                     <a href="#" class="btn" onclick="downloadImg(this)" download="my-meme.jpg"><i
                             class="fa-solid fa-file-export"></i></a>
-                    <button class="save btn" onclick="onSave(event)"><i class="fa-solid fa-lock"></i></button>
+                    <button class="save btn" onclick="onSave()"><i class="fa-solid fa-lock"></i></button>
                     <button class="btn" onclick="onUploadImg()"><i class="fa-brands fa-facebook"></i> </button>
                 </div>
                 <section class="color-txt flex center">
@@ -83,15 +83,17 @@
         </nav>
        </header>
     </section>
-    <section class="saved">
+    <section class="saved center">
     </section>
     <script src="js/meme.service.js"></script>
-    <script src="js/gallerty.service.js"></script>
+    <script src="js/gallery.service.js"></script>
+    <script src="js/memeSaved.service.js"></script>
     <script src="js/storage.service.js"></script>
     <script src="js/util.service.js"></script>
 
-    <script src="js/pages.js"></script>
     <script src="js/gallery.controller.js"></script>
+    <script src="js/memeSaved.controller.js"></script>
+    <script src="js/pages.js"></script>
     <script src="js/meme.controller.js"></script>
 </body>
 

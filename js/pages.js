@@ -17,4 +17,5 @@ function  savePage(){
     gEditPage.classList.add('hidden') 
     gGalleryPage.classList.add('hidden') 
     gSavedPage.classList.remove('hidden') 
+
 }

@@ -18,7 +18,6 @@ function setlineTxt() {
   gMeme.lines[gMeme.selectedLineIdx].txt = elTxtLine.value
 }
 function setImg(id) {
-  document.querySelector('.text-line').value=''
  gMeme=createDefulatMeme()
   gMeme.selectedImgId = id
 }

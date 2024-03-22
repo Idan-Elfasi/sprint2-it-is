@@ -1,0 +1,11 @@
+.saved{
+    display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  row-gap: 1em;
+  column-gap: 2em;
+}
+/* .saved *>{
+grid-column: 2;
+} */
+    
+
