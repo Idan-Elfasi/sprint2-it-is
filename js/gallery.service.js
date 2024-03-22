@@ -15,7 +15,7 @@ var gImgs = [{ id: 1, url: 'img/2.jpg', keywords: ['funny', 'cat'] },
 { id: 15, url: 'img/16.jpg', keywords: ['happy'] },
 { id: 16, url: 'img/17.jpg', keywords: ['guilty'] },
 { id: 17, url: 'img/18.jpg', keywords: ['happy', 'sad'] }]
-var gText
+
 
 function getImgbyId(id) {
   var img = gImgs.find(img => img.id === id)

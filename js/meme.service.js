@@ -3,24 +3,11 @@ const gFontSize = 16
 const gPxPadding = gFontSize * 1.5
 const gpxPaddingInline = gFontSize * 0.5
 const gpxPaddingBottom = gFontSize * 0.2
-const startLineX=100
-const startLineY=20
+const startLineX = 100
+const startLineY = 20
 
 var gIds = 1
-var gMeme = {
-  selectedImgId: 1,
-  selectedLineIdx: 0,
-  lines: [
-    {
-      txt: 'Add text Here',
-      size: 1.25,
-      color: 'white',
-      borderColor:'black',
-      pos: { x: startLineX, y: startLineY },
-      originalPos:{x:startLineX,y:startLineY},
-    }
-  ]
-}
+var gMeme = createDefulatMeme()
 var gKeywordSearchCountMap = { 'funny': 12, 'cat': 16, 'baby': 2 }
 function getMeme() {
   return gMeme
@@ -31,17 +18,35 @@ function setlineTxt() {
   gMeme.lines[gMeme.selectedLineIdx].txt = elTxtLine.value
 }
 function setImg(id) {
+  document.querySelector('.text-line').value=''
+ gMeme=createDefulatMeme()
   gMeme.selectedImgId = id
 }
-function SetOtherText(txt){
-  gMeme.lines[0].txt=txt
+function createDefulatMeme(){
+return {
+  selectedImgId: 1,
+  selectedLineIdx: 0,
+  lines: [
+    {
+      txt: 'Add text Here',
+      size: 1.25,
+      color: 'white',
+      borderColor: 'black',
+      pos: { x: startLineX, y: startLineY },
+      originalPos: { x: startLineX, y: startLineY },
+    }
+  ]
+}
+}
+function SetOtherText(txt) {
+  gMeme.lines[0].txt = txt
 }
 
 function ChangeTxtColor(inputColor) {
   gMeme.lines[gMeme.selectedLineIdx].color = inputColor.value
 }
-function changeTxtStrokeColor(inputColor){
-  gMeme.lines[gMeme.selectedLineIdx].borderColor=inputColor.value
+function changeTxtStrokeColor(inputColor) {
+  gMeme.lines[gMeme.selectedLineIdx].borderColor = inputColor.value
 }
 
 function DecreaseSizeByBtn() {
@@ -58,9 +63,9 @@ function createLine() {
     txt: 'Add text Here',
     size: 1.25,
     color: 'white',
-    borderColor:'black',
+    borderColor: 'black',
     pos: { x, y },
-    originalPos:{x,y},
+    originalPos: { x, y },
 
   }
 }
@@ -99,14 +104,30 @@ function deleteLine() {
 }
 function rightLine() {
   // only 3 clickes you can
-  if(gMeme.lines[gMeme.selectedLineIdx].pos.x >gMeme.lines[gMeme.selectedLineIdx].originalPos.x +60)return
-  gMeme.lines[gMeme.selectedLineIdx].pos.x +=30
- }
- function leftLine(){
-    // only 3 clickes you can
-  if(gMeme.lines[gMeme.selectedLineIdx].pos.x <gMeme.lines[gMeme.selectedLineIdx].originalPos.x -60)return
-  gMeme.lines[gMeme.selectedLineIdx].pos.x -=30
- }
- function centerLine(){
-  gMeme.lines[gMeme.selectedLineIdx].pos.x=gMeme.lines[gMeme.selectedLineIdx].originalPos.x
- }
+  if (gMeme.lines[gMeme.selectedLineIdx].pos.x > gMeme.lines[gMeme.selectedLineIdx].originalPos.x + 60) return
+  gMeme.lines[gMeme.selectedLineIdx].pos.x += 30
+}
+function leftLine() {
+  // only 3 clickes you can
+  if (gMeme.lines[gMeme.selectedLineIdx].pos.x < gMeme.lines[gMeme.selectedLineIdx].originalPos.x - 60) return
+  gMeme.lines[gMeme.selectedLineIdx].pos.x -= 30
+}
+function centerLine() {
+  gMeme.lines[gMeme.selectedLineIdx].pos.x = gMeme.lines[gMeme.selectedLineIdx].originalPos.x
+}
+
+function copyMeme(meme) {
+  var newMeme= {
+    selectedImgId: meme.selectedImgId,
+    selectedLineIdx: meme.selectedLineIdx,
+    lines: {
+      txt: meme.lines[meme.selectedLineIdx].txt,
+      size: meme.lines[meme.selectedLineIdx].size,
+      color: meme.lines[meme.selectedLineIdx].color,
+      borderColor: meme.lines[meme.selectedLineIdx].borderColor,
+      pos: meme.lines[meme.selectedLineIdx].pos,
+      originalPos: meme.lines[meme.selectedLineIdx].originalPos,
+    }
+  }
+  document.querySelector('.text-line').value=newMeme.lines.txt
+}
