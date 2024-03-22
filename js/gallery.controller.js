@@ -19,6 +19,11 @@ function onImgSelect (id){
     renderMeme()
     editorPage()
 }
+function onRandomMeme(){
+    randomMeme()
+    renderMeme()
+    editorPage()
+}
 
 
  
