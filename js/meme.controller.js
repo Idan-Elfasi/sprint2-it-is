@@ -19,9 +19,12 @@ function inIt() {
 }
 function resizeCanvas() {
     const elContainer = document.querySelector('.canvas-container')
+    
 
     gElCanvas.width = elContainer.offsetWidth
     gElCanvas.height = elContainer.offsetHeight
+
+
 }
 function renderMeme() {
     var meme = getMeme()
@@ -101,13 +104,10 @@ function CheckOnlineClick(ev) {
         var widthLine=gCtx.measureText(txt).width
         var size=line.size*gFontSize
         var { x, y } = line.pos
-        console.log('x: ' + x, 'y: ' + y, 'offsetX: ' + offsetX, 'offsety: ' + offsetY);
-        // if (offsetX >= x && offsetX <= (gborderWidth + gpxPaddingInline) + x && offsetY >= y && offsetY <= y + (gborderHieght * 0.5 + gpxPaddingBottom)) 
         if(offsetX >= x && offsetX<= x+widthLine && offsetY<=(y+gpxPaddingBottom) && offsetY>gpxPaddingBottom + (y - size))
         {
             switchLineClicked(idx)
             renderMeme()
-            console.log('this is the line clicked')
         }
     })
 }
@@ -133,10 +133,10 @@ function addListeners() {
     addMouseListeners()
     addTouchListeners()
 
-    window.addEventListener('resize', () => {
-        resizeCanvas() 
-        renderMeme()
-    })
+    // window.addEventListener('resize', () => {
+    //     resizeCanvas() 
+    //     // renderMeme()
+    // })
 }
 
 function addMouseListeners() {

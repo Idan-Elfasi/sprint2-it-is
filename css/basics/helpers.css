@@ -50,3 +50,6 @@
 .hidden{
     display: none;
 }
+.grid-col{
+    grid-auto-flow: column; 
+}
