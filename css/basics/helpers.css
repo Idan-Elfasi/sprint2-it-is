@@ -14,10 +14,19 @@
     justify-content: end;
     align-items: center;
 }
+.gap{
+    gap: 0.5em;
+}
 
 .nice-color{
     color: var(--prince-clr);
 }
+.padding-inline-start{
+    padding-inline-start: 2em;
+}
+/* .padding-inline-start{
+    padding-inline-start: 0.5em;
+} */
 .btn {
 	padding: 5px 10px;
 	background: #4267b2;

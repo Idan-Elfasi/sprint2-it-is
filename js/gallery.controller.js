@@ -1,11 +1,10 @@
 'use strict'
 var gTypeImages
-var gGallery=document.querySelector('.gallery')
+var gGallery = document.querySelector('.gallery')
 
 function renderGallery() {
-// var strContStart=`<main class="gallery-container">`
-// var strContEnd=`</main>`
-const elMainGallery=document.querySelector('.gallery-container')
+
+    const elMainGallery = document.querySelector('.gallery-container')
     var strHtmls = gImgs.map(img => `
     <article class="img">
         <img src="${img.url}" 
@@ -13,37 +12,57 @@ const elMainGallery=document.querySelector('.gallery-container')
         onclick="onImgSelect(${img.id})">
     </article> 
     `)
-// gGallery.innerHTML +=  strContStart+strHtmls.join('')+strContEnd
-elMainGallery.innerHTML=strHtmls.join('')
-
-
+    elMainGallery.innerHTML = strHtmls.join('')
 }
-function onImgSelect (id){
+function onImgSelect(id) {
     setImg(id)
     renderMeme()
     editorPage()
 }
-function onRandomMeme(){
+function onRandomMeme() {
     randomMeme()
     renderMeme()
     editorPage()
 }
-function onSearchingGallery(ev,from){
+function onSearchingGallery(ev, form) {
     ev.preventDefault();
-    var inputValue=from.querySelector('input').value
-   var newImages= searchingGallery(inputValue)
-    console.log(newImages);
+    var inputValue = form.querySelector('input').value
+    renderfilterGallery(inputValue)
+    onIncreaseKey(inputValue)
+}
+function renderKeyWords() {
+    const elKeywords = document.querySelector('.search-by-keywords')
+    var names = Object.keys(gKeywordSearchCountMap)
+    var likes=Object.values(gKeywordSearchCountMap)
+    console.log(names);
+    var strHtmls = names.map((keyWord,idx) => ` <div  onclick="onSearchKey('${keyWord}'); onIncreaseKey('${keyWord}')"  style="font-size:${likes[idx]+7}px;" class="keyWord btn font-size-btn  ">${keyWord}</div>
+ ` )
+    elKeywords.innerHTML = strHtmls.join('')
+}
 
-const elMainGallery=document.querySelector('.gallery-container')
- var strHtmls = newImages.map(img => `
+function onSearchKey(keyWord) {
+    var inputValue = document.querySelector('input').value = keyWord
+    console.log(inputValue);
+    renderfilterGallery(inputValue)
+}
+function renderfilterGallery(inputValue) {
+    var newImages = searchingGallery(inputValue)
+
+    const elMainGallery = document.querySelector('.gallery-container')
+    var strHtmls = newImages.map(img => `
     <article class="img">
         <img src="${img.url}" 
         alt="Image ${img.id}"
         onclick="onImgSelect(${img.id})">
     </article> 
     `)
-    elMainGallery.innerHTML=strHtmls.join('')
+    elMainGallery.innerHTML = strHtmls.join('')
+}
+
+function onIncreaseKey(keyWord) {
+    increaseKey(keyWord)
+    renderKeyWords()
+    console.log(gKeywordSearchCountMap);
 }
 
 
- 

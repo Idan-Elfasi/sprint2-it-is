@@ -8,7 +8,7 @@ const startLineY = 20
 
 var gIds = 1
 var gMeme = createDefulatMeme()
-var gKeywordSearchCountMap = { 'funny': 12, 'cat': 16, 'baby': 2 }
+
 function getMeme() {
   return gMeme
 }

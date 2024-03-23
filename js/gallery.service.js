@@ -15,7 +15,8 @@ var gImgs = [{ id: 1, url: 'img/2.jpg', keywords: ['funny', 'cat'] },
 { id: 15, url: 'img/16.jpg', keywords: ['happy'] },
 { id: 16, url: 'img/17.jpg', keywords: ['guilty'] },
 { id: 17, url: 'img/18.jpg', keywords: ['happy', 'sad'] }]
-var gFilterImages=[]
+var gFilterImages = []
+var gKeywordSearchCountMap = { 'funny': 12, 'cat': 16, 'baby': 2 }
 
 function getImgbyId(id) {
   var img = gImgs.find(img => img.id === id)
@@ -24,25 +25,35 @@ function getImgbyId(id) {
 function randomMeme() {
   var meme = getMeme()
   meme.lines.splice(1)
-  
+
   var imgNum = getRandomIntInclusive(1, 17)
   var txt = makeLorem(2)
-  document.querySelector('.text-line').value=txt
-  
+  document.querySelector('.text-line').value = txt
+
   setImg(imgNum)
   SetOtherText(txt)
 
 
 }
 
-function  searchingGallery(inputValue){
-var imges=[]
-for(var i=0;i<gImgs.length;i++){
-  for(var j=0; j<gImgs[i].keywords.length;j++){
-    if(gImgs[i].keywords[j]===inputValue){
-      imges.push(gImgs[i])
+function searchingGallery(inputValue) {
+  var imges = []
+  for (var i = 0; i < gImgs.length; i++) {
+    for (var j = 0; j < gImgs[i].keywords.length; j++) {
+      if (gImgs[i].keywords[j] === inputValue) {
+        imges.push(gImgs[i])
+      }
     }
   }
+  return imges
 }
-return imges
+function increaseKey(keyWord) {
+  if (!gKeywordSearchCountMap[keyWord]) { gKeywordSearchCountMap[keyWord] = 1 }
+  else {
+    gKeywordSearchCountMap[keyWord] += 1
+
+  }
+}
+function searchKey(keyWord) {
+
 }

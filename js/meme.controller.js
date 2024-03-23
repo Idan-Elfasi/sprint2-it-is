@@ -9,13 +9,12 @@ var gborderWidth
 function inIt() {
     gElCanvas = document.querySelector('canvas')
     gCtx = gElCanvas.getContext('2d')
-    // gSavedMems= loadFromStorage('savedMemes')
 
     resizeCanvas()
     renderMeme()
     editorPage()
     renderGallery()
-    // renderAfterLoad()
+    renderKeyWords()
 }
 function resizeCanvas() {
     const elContainer = document.querySelector('.canvas-container')
