@@ -28,31 +28,29 @@ function renderMeme() {
 
     const img = new Image()
     img.src = imgObject.url
+
     img.onload = function () {
         gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height)
         meme.lines.forEach((line, idx) => {
+
             const txt = line.txt
             const textSize = line.size
             var { x, y } = line.pos
+
             gCtx.fillStyle = line.color
             gCtx.strokeStyle = line.borderColor
             gCtx.font = `${line.size}em Regular `
-            gCtx.strokeText(txt,x,y)
 
-
+            gCtx.strokeText(txt, x, y)
             gCtx.fillText(txt, x, y)
-            if (idx === gMeme.selectedLineIdx ) {
 
+            if (idx === gMeme.selectedLineIdx) {
 
-                var mull = 1.42857 // line hight from bootstrap 
                 var size = textSize * gFontSize
-
-                gborderHieght = (mull * size)
-
-
                 gborderWidth = gCtx.measureText(txt).width
-                gCtx.strokeStyle ='black';
-                gCtx.strokeRect(x, y - 0.5 * gborderHieght, gborderWidth + gpxPaddingInline, gborderHieght * 0.5 + gpxPaddingBottom)
+
+                gCtx.strokeStyle = 'black';
+                gCtx.strokeRect(x, gpxPaddingBottom + (y - size), gborderWidth, size)
 
             }
 
@@ -72,7 +70,7 @@ function onChangeTxtColor(inputColor) {
     ChangeTxtColor(inputColor)
     renderMeme()
 }
-function onChangeTxtStrokeColor(inputColor){
+function onChangeTxtStrokeColor(inputColor) {
     changeTxtStrokeColor(inputColor)
     renderMeme()
 }
@@ -100,9 +98,14 @@ function CheckOnlineClick(ev) {
     const { offsetX, offsetY } = ev
 
     gMeme.lines.forEach((line, idx) => {
+        var txt=line.txt
+        var widthLine=gCtx.measureText(txt).width
+        var size=line.size*gFontSize
         var { x, y } = line.pos
         console.log('x: ' + x, 'y: ' + y, 'offsetX: ' + offsetX, 'offsety: ' + offsetY);
-        if (offsetX >= x && offsetX <= (gborderWidth + gpxPaddingInline) + x && offsetY >= y && offsetY <= y + (gborderHieght * 0.5 + gpxPaddingBottom)) {
+        // if (offsetX >= x && offsetX <= (gborderWidth + gpxPaddingInline) + x && offsetY >= y && offsetY <= y + (gborderHieght * 0.5 + gpxPaddingBottom)) 
+        if(offsetX >= x && offsetX<= x+widthLine && offsetY<=(y+gpxPaddingBottom) && offsetY>gpxPaddingBottom + (y - size))
+        {
             switchLineClicked(idx)
             renderMeme()
             console.log('this is the line clicked')
