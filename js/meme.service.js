@@ -33,6 +33,7 @@ return {
       borderColor: 'black',
       pos: { x: startLineX, y: startLineY },
       originalPos: { x: startLineX, y: startLineY },
+      isDrag:false
     }
   ]
 }
@@ -56,8 +57,8 @@ function IncreaseSizeByBtn() {
   gMeme.lines[gMeme.selectedLineIdx].size += 0.05
 }
 function createLine() {
-  var x = gMeme.lines[gMeme.selectedLineIdx - 1].originalPos.x + gPxPadding
-  var y = gMeme.lines[gMeme.selectedLineIdx - 1].originalPos.y + gPxPadding
+  var x = gMeme.lines[gMeme.selectedLineIdx - 1].pos.x + gPxPadding
+  var y = gMeme.lines[gMeme.selectedLineIdx - 1].pos.y + gPxPadding
   return {
     txt: 'Add text Here',
     size: 1.25,
@@ -65,6 +66,7 @@ function createLine() {
     borderColor: 'black',
     pos: { x, y },
     originalPos: { x, y },
+    isDrag:false,
 
   }
 }
@@ -129,4 +131,23 @@ function copyMeme(meme) {
     }
   }
   document.querySelector('.text-line').value=newMeme.lines.txt
+}
+function isLineClicked(clickedPos) {
+
+	const { pos } = gMeme.lines[gMeme.selectedLineIdx]
+
+    var txt=gMeme.lines[gMeme.selectedLineIdx].txt
+    var widthLine=gCtx.measureText(txt).width
+
+    var size=gMeme.lines[gMeme.selectedLineIdx].size*gFontSize
+	
+    return(clickedPos.x >= pos.x && clickedPos.x<= pos.x+widthLine && clickedPos.y<=(pos.y+gpxPaddingBottom) && clickedPos.y>gpxPaddingBottom + (pos.y - size))
+
+}
+function setLineDrag(isDrag) {
+	gMeme.lines[gMeme.selectedLineIdx].isDrag = isDrag
+}
+function moveLine(dx, dy) {
+	gMeme.lines[gMeme.selectedLineIdx].pos.x += dx
+	gMeme.lines[gMeme.selectedLineIdx].pos.y += dy
 }
