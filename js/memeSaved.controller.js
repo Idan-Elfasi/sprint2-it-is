@@ -15,7 +15,7 @@ gSaveSection.innerHTML += strHtmls
     gSavedMems=loadFromStorage('savedMemes')
     var strHtmls=gSavedMems.map((meme,idx)=>`
     <div onclick="onOpenMemeInEditor(${idx})" class="saved-meme-canvas">
-   <canvas class="canvas-${idx}" width="200" height="200" ></canvas>
+   <canvas class="canvas-${idx}" width="300" height="300" ></canvas>
 </div>`)
 gSaveSection.innerHTML += strHtmls
 gSavedMems.forEach((meme,idxArr) =>renderSave(idxArr)) 

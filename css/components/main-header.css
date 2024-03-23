@@ -1,26 +1,31 @@
-.main-header{
-   background-color:var(--primery-end) ;
-   position: relative;
+.main-header {
+    background-color: var(--primery-end);
+    position: relative;
 }
-.main-header:hover{
+
+.main-header:hover {
     cursor: pointer;
 }
-.main-header ul{
-    gap: 9em;
+
+.main-header ul {
+    gap: 12em;
 }
-.main-header ul > *{
+
+
+.main-header ul>* {
     height: 70px;
     border: solid var(--primery-end);
 }
-.main-header ul > *:hover{
+
+.main-header ul>*:hover {
     transition: 0.5s;
-background-color: aliceblue;
-color: black;
+    background-color: aliceblue;
+    color: black;
 
 }
 
 
-.main-header select{
-position: absolute;
-right: 0;
+.main-header select {
+    position: absolute;
+    right: 0;
 }

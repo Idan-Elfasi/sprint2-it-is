@@ -11,7 +11,7 @@ function inIt() {
     gCtx = gElCanvas.getContext('2d')
 
     addListeners()
-    resizeCanvas()
+    // resizeCanvas()
     renderMeme()
     editorPage()
     renderGallery()
@@ -135,7 +135,7 @@ function addListeners() {
 
     // window.addEventListener('resize', () => {
     //     resizeCanvas() 
-    //     // renderMeme()
+    //     renderMeme()
     // })
 }
 
