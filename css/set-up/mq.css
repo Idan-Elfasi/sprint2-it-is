@@ -4,6 +4,10 @@
         grid-template-columns:
             minmax(20px, 1fr) minmax(auto, 700px) minmax(20px, 1fr);
     }
+    .editor-page .edit-buttons,.canvas-container{
+      margin-bottom: 4em;
+
+    }
     
     .main-header ul>* {
         height: 50px;
@@ -63,3 +67,64 @@ gap: 2em
     }
   }
   
+
+
+/* SMALL */
+/* @media (min-width: 640px) {
+  .gallery-container img {
+      width: 320px;
+  }
+}
+
+@media (min-width: 920px) {
+  .main-header ul {
+    gap: 8em;
+}
+
+
+.main-header ul>* {
+    height: 50px;
+    border: solid var(--primery-end);
+}
+ 
+
+.main-editor {
+  grid-template-columns:  
+  minmax(30px, 1fr) 
+  minmax(auto, 290px) 
+  minmax(30px, 1fr) 
+  minmax(auto, 290px) 
+  minmax(30px, 1fr);  
+  
+}
+.gallery-container img {
+    width: 220px;
+}
+ 
+
+  
+
+  
+}
+
+LARGE
+@media (min-width: 1000px) {
+  .editor-page {
+      grid-template-columns:  
+          minmax(20px, 1fr) 
+          minmax(auto, 465px) 
+          minmax(20px, 1fr) 
+          minmax(auto, 465px) 
+          minmax(20px, 1fr);  
+      
+  }
+  
+  .edit-buttons {
+    grid-column: 3;
+}
+.canvas-container {
+  grid-column: 2;
+  width: 100%;
+  
+}
+} 

@@ -54,6 +54,3 @@ function increaseKey(keyWord) {
 
   }
 }
-function searchKey(keyWord) {
-
-}

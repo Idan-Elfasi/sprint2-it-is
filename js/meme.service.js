@@ -6,6 +6,8 @@ const gpxPaddingBottom = gFontSize * 0.2
 const startLineX = 100
 const startLineY = 20
 
+var gEmojis=['😎','😂','😙', '😀', '🎉','⚽','🤠','😇']
+
 var gIds = 1
 var gMeme = createDefulatMeme()
 
@@ -150,4 +152,7 @@ function setLineDrag(isDrag) {
 function moveLine(dx, dy) {
 	gMeme.lines[gMeme.selectedLineIdx].pos.x += dx
 	gMeme.lines[gMeme.selectedLineIdx].pos.y += dy
+}
+function renderEmojiTotxt(btn){
+gMeme.lines[gMeme.selectedLineIdx].txt +=btn.innerText
 }

@@ -16,10 +16,11 @@ function inIt() {
     editorPage()
     renderGallery()
     renderKeyWords()
+    renderEmojisButtons()
 }
 function resizeCanvas() {
     const elContainer = document.querySelector('.canvas-container')
-    
+
 
     gElCanvas.width = elContainer.offsetWidth
     gElCanvas.height = elContainer.offsetHeight
@@ -100,12 +101,11 @@ function CheckOnlineClick(ev) {
     const { offsetX, offsetY } = ev
 
     gMeme.lines.forEach((line, idx) => {
-        var txt=line.txt
-        var widthLine=gCtx.measureText(txt).width
-        var size=line.size*gFontSize
+        var txt = line.txt
+        var widthLine = gCtx.measureText(txt).width
+        var size = line.size * gFontSize
         var { x, y } = line.pos
-        if(offsetX >= x && offsetX<= x+widthLine && offsetY<=(y+gpxPaddingBottom) && offsetY>gpxPaddingBottom + (y - size))
-        {
+        if (offsetX >= x && offsetX <= x + widthLine && offsetY <= (y + gpxPaddingBottom) && offsetY > gpxPaddingBottom + (y - size)) {
             switchLineClicked(idx)
             renderMeme()
         }
@@ -211,14 +211,14 @@ function onUp() {
 }
 function onUploadImg() {
     // Gets the image from the canvas
-    const imgDataUrl = gElCanvas.toDataURL('image/jpeg') 
+    const imgDataUrl = gElCanvas.toDataURL('image/jpeg')
 
     function onSuccess(uploadedImgUrl) {
         // Handle some special characters
         const url = encodeURIComponent(uploadedImgUrl)
         window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}&t=${url}`)
     }
-    
+
     // Send the image to the server
     doUploadImg(imgDataUrl, onSuccess)
 }
@@ -249,4 +249,12 @@ function doUploadImg(imgDataUrl, onSuccess) {
     XHR.open('POST', '//ca-upload.com/here/upload.php')
     XHR.send(formData)
 }
-
+function renderEmojisButtons() {
+    const elEmojis=document.querySelector('.emojis-container')
+     var strHtmls=gEmojis.map(emoji => `<button class="btn" onclick="onRenderEmojiTotxt(this)">${emoji}</button>`)
+    elEmojis.innerHTML=strHtmls.join('')
+}
+function onRenderEmojiTotxt(btn){
+renderEmojiTotxt(btn)
+renderMeme()
+}
